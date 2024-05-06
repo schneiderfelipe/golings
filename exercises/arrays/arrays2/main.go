@@ -6,6 +6,6 @@ package main
 import "fmt"
 
 func main() {
-	names := [4]string{"John", "Maria", "Carl", "Felipe"}
+	names := [...]string{"John", "Maria", "Carl", "Felipe"}
 	fmt.Println(names)
 }
