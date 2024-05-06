@@ -6,11 +6,12 @@ package main_test
 import "testing"
 
 func fooIfFizz(fizzish string) string {
-	if fizzish == "fizz" {
+	switch fizzish {
+	case "fizz":
 		return "foo"
-	} else if fizzish == "fuzz" {
+	case "fuzz":
 		return "bar"
-	} else {
+	default:
 		return "baz"
 	}
 }
