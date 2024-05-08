@@ -3,6 +3,7 @@
 package main
 
 import "fmt"
+import "strings"
 
 type Person struct {
 	firstName string
@@ -10,7 +11,17 @@ type Person struct {
 }
 
 func (p *Person) FullName() string {
-	return p.firstName + " " + p.lastName
+	b := strings.Builder{}
+	if _, err := b.WriteString(p.firstName); err != nil {
+		panic("unable to write first name")
+	}
+	if err := b.WriteByte(' '); err != nil {
+		panic("unable to write space")
+	}
+	if _, err := b.WriteString(p.lastName); err != nil {
+		panic("unable to write last name")
+	}
+	return b.String()
 }
 
 func main() {
